@@ -10,15 +10,29 @@ This repository is designed for one maintainer. Automated checks are required;
 no second reviewer, CODEOWNERS approval, team membership, or mandatory human
 approval is introduced.
 
-## Start here
+## Usage
 
-1. Replace `replace-me` and `src/replace_me` with the package identity.
-2. Run `python -m pip install -e ".[test]"`.
-3. Run `python -m pytest --cov`.
+Choose **Use this template** to create a Python project, then follow the
+[adoption checklist](BOOTSTRAP.md). The initial package is a placeholder module
+with a smoke test; implement the project's API and regression tests before
+publishing it.
+
+1. Replace `replace-me` in `pyproject.toml` and rename `src/replace_me/`.
+2. Follow [CONTRIBUTING.md](CONTRIBUTING.md) to select the CI-matching Python and
+   create an isolated environment.
+3. Install the test extra with `python -m pip install -e ".[test]"` in that
+   environment.
+4. Run `python -m pytest --cov --cov-report=xml` and inspect the test and
+   coverage results.
 
 ## Development
 
-CI installs the test extra, runs pytest with coverage, and uploads real coverage through Codecov OIDC.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup and validation commands, and
+[BOOTSTRAP.md](BOOTSTRAP.md) for the adoption checklist.
+
+The pinned shared CI installs the test extra and runs pytest with coverage. It
+is configured to upload that output through Codecov OIDC. Verify provider
+activation and an actual upload in each generated repository.
 
 ## Versioning
 
@@ -30,9 +44,9 @@ This starts as a passive library, so it does not configure global logging. Appli
 
 ## Security
 
-Report vulnerabilities privately through GitHub Security Advisories. See
-[SECURITY.md](SECURITY.md); do not disclose credentials or sensitive source data
-in a public issue.
+Follow [SECURITY.md](SECURITY.md) for private reporting and the safe contact
+fallback if GitHub's **Report a vulnerability** option is unavailable. Do not
+include credentials, sensitive source data or exploit details in public issues.
 
 ## Citation
 
